@@ -1,0 +1,75 @@
+<mat-drawer-container>
+  <mat-drawer *ngIf="sessionStr.getItem('authenticated')==='true'" mode="side" [opened]="sideBarOpen">
+      <app-sidenav></app-sidenav>
+  </mat-drawer>
+  <mat-drawer-content>
+      <app-header *ngIf="sessionStr.getItem('authenticated')==='true'" (toggleSidebarForMe)="sideBarToggler()"></app-header>
+
+
+      <div class="container" *ngIf="sessionStr.getItem('authenticated')==='true'">
+        <h1 class="title-user">USUARIOS</h1>
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12">
+              <button type="button"  class="btn"  routerLink="/form-user" >AGREGAR</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="container">
+          <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="col" *ngFor="let user of userData" >
+
+              <div class="card"  *ngIf="user.person.state == true">
+                <img *ngIf="user.is_admin ==true" src="../../../assets/admin.png" class="img-fluid" alt="..."  (click)="getId(user.user_id)" routerLink="/info-user">
+                <img *ngIf="user.is_admin ==false" src="../../../assets/user.png" class="img-fluid" alt="..."  (click)="getId(user.user_id)" routerLink="/info-user">
+                <div class="card-body">
+                  <h2 class="card-title">{{user.person.first_name}}</h2>
+                  <h2 class="card-title">{{user.person.last_name}}</h2>
+                  <h2 class="card-cant">C.C: {{user.document_number}}</h2>
+                  <div class="container">
+                    <div class="row">
+                      <div class="col">
+                        <button type="button" class="btn" (click)="getId(user.user_id)" routerLink="/edit-form-user" >EDITAR</button>
+                      </div>
+                      <div class="col">
+                        <button type="button" class="btn" (click)="getIddelete(user.user_id)">INACTIVAR</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="card-fal"  *ngIf="user.person.state == false">
+                <img *ngIf="user.is_admin ==true" src="../../../assets/admin.png" class="img-fluid" alt="...">
+                <img *ngIf="user.is_admin ==false" src="../../../assets/user.png" class="img-fluid" alt="...">
+                <div class="card-body">
+                  <h2 class="card-title">{{user.person.first_name}}</h2>
+                  <h2 class="card-title">{{user.person.last_name}}</h2>
+                  <h2 class="card-cant">C.C: {{user.document_number}}</h2>
+                  <div class="container">
+                    <div class="row">
+                      <div class="col">
+                        <button type="button" disabled="true" class="btn" (click)="getId(user.user_id)" routerLink="/edit-form-user" >EDITAR</button>
+                      </div>
+                      <div class="col">
+                        <button type="button" class="btn" (click)="getIdActive(user.user_id)" >ACTIVAR</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+
+
+           </div>
+        </div>
+
+      </div>
+
+
+    </mat-drawer-content>
+</mat-drawer-container>
+

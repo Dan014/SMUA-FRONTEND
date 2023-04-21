@@ -1,0 +1,76 @@
+<mat-drawer-container>
+  <mat-drawer *ngIf="sessionStr.getItem('authenticated')==='true'" mode="side" [opened]="sideBarOpen">
+      <app-sidenav></app-sidenav>
+  </mat-drawer>
+  <mat-drawer-content>
+      <app-header *ngIf="sessionStr.getItem('authenticated')==='true'" (toggleSidebarForMe)="sideBarToggler()"></app-header>
+
+      <div class="container" *ngIf="sessionStr.getItem('authenticated')==='true'" >
+        <h1 class="title-user">PROVEEDORES</h1>
+        <div class="container">
+        <div class="row">
+          <div class="col-sm-4">
+            <button type="button" class="btn btn-primary"  >AGREGAR</button>
+
+          </div>
+          <div class="col-sm-8">
+            <form class="form-inline my-2 my-lg-0">
+              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            </form>
+          </div>
+        </div>
+        <div class="container">
+          <div class="row row-cols-1 row-cols-md-3 g-4">
+
+            <div class="col">
+              <div class="card"  >
+                <img src="../../../assets/user.png" class="img-fluid" alt="...">
+                <div class="card-body">
+                  <h2 class="card-title">Nombre</h2>
+                  <h2 class="card-cant">C.C: 123466789</h2>
+                  <div class="container">
+                    <div class="row">
+                      <div class="col">
+                        <button type="button" class="btn" >EDITAR</button>
+                      </div>
+                      <div class="col">
+                        <button  type="button" class="btn">ELIMINAR</button>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col">
+              <div class="card"  >
+                <img src="../../../assets/user.png" class="img-fluid" alt="...">
+                <div class="card-body">
+                  <h2 class="card-title">Nombre</h2>
+                  <h2 class="card-cant">C.C: 123466789</h2>
+                  <div class="container">
+                    <div class="row">
+                      <div class="col">
+                        <button type="button" class="btn" >EDITAR</button>
+                      </div>
+                      <div class="col">
+                        <button  type="button" class="btn">ELIMINAR</button>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            </div>
+        </div>
+
+      </div>
+      </div>
+
+
+    </mat-drawer-content>
+</mat-drawer-container>
+
+

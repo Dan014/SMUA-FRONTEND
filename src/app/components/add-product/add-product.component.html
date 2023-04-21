@@ -1,0 +1,75 @@
+<mat-drawer-container>
+  <mat-drawer *ngIf="sessionStr.getItem('authenticated')==='true'" mode="side" [opened]="sideBarOpen">
+      <app-sidenav></app-sidenav>
+  </mat-drawer>
+  <mat-drawer-content>
+      <app-header *ngIf="sessionStr.getItem('authenticated')==='true'" (toggleSidebarForMe)="sideBarToggler()"></app-header>
+
+        <div class="container">
+
+<h1 class="title-user">Agregar Producto</h1>
+<div class="text-center">
+  <img src="assets/noimage.jpg" class="img-thumbnail" alt="...">
+</div>
+<form class="row g-3"  [formGroup]="productForm" (ngSubmit)="onSubmit()">
+  <div class="form-group" >
+    <input (change)="capturarImagen($event)" type="file" placeholder="Upload file" class="form-control-file" accept=".png,.jpg" id="exampleFormControlFile1">
+  </div>
+  <div class="col-md-12">
+    <label for="inputname"  class="form-label">Nombre Producto</label>
+    <input type="text" formControlName="product_name" class="form-control" id="inputname" name="inputname" required>
+    <div *ngIf="validateControl('product_name', 'required')">
+      Campo requerido
+    </div>
+  </div>
+  <div class="col-md-6">
+    <label for="direction" class="form-label">Codigo Producto</label>
+    <input type="text" formControlName="product_code" class="form-control" id="direction" name="direction" required>
+    <div *ngIf="validateControl('product_code', 'required')">
+      Campo requerido
+    </div>
+  </div>
+  <div class="col-md-6">
+    <label for="input-mobile" class="form-label">Categoria</label>
+    <select formControlName="category_id" class="form-select" aria-label="Default select example">
+      <option value={{category.category_id}} *ngFor="let category of categoryData">{{category.category_name}}</option>
+    </select>
+  </div>
+  <div class="col-md-6">
+    <label for="input-mobile" class="form-label">Precio de Compra</label>
+    <input type="number" formControlName="purchase_price" class="form-control" id="input-mobile" name="input-mobile" required>
+    <div *ngIf="validateControl('purchase_price', 'required')">
+      Campo requerido
+    </div>
+  </div>
+  <div class="col-md-6">
+    <label for="input-id" class="form-label">Precio Minimo</label>
+    <input type="number" formControlName="min_price" class="form-control" id="input-id" name="input-id" required>
+    <div *ngIf="validateControl('min_price', 'required')">
+      Campo requerido
+    </div>
+  </div>
+  <div class="col-md-6">
+    <label for="input-rol" class="form-label">Precio Maximo</label>
+    <input type="number" formControlName="max_price" class="form-control" id="input-rol" name="input-rol" required>
+    <div *ngIf="validateControl('max_price', 'required')">
+      Campo requerido
+    </div>
+  </div>
+  <div class="col-md-6">
+
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Descripcion</label>
+    <textarea class="form-control"  formControlName="description" id="exampleFormControlTextarea1" name="exampleFormControlTextarea1" rows="3" ></textarea>
+  </div>
+  <div class="col-md-12">
+  </div>
+  <input [disabled]="productForm.invalid" type="submit" value="Agregar" class="btn">
+
+</form>
+
+        </div>
+
+    </mat-drawer-content>
+</mat-drawer-container>

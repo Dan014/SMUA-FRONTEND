@@ -1,0 +1,61 @@
+<mat-drawer-container>
+  <mat-drawer *ngIf="sessionStr.getItem('authenticated')==='true'" mode="side" [opened]="sideBarOpen">
+      <app-sidenav></app-sidenav>
+  </mat-drawer>
+  <mat-drawer-content>
+      <app-header *ngIf="sessionStr.getItem('authenticated')==='true'" (toggleSidebarForMe)="sideBarToggler()"></app-header>
+
+    <div class="container">
+
+<h1 class="title-user">EDITAR PRODUCTO</h1>
+<div class="text-center">
+
+</div>
+<form class="row g-3"  [formGroup]="productForm" (ngSubmit)="upDateProduct()">
+  <div class="text-center" >
+    <div> <img [src]="productData.productimage_url | noimage"> </div>
+    <input (change)="capturarImagen($event)" type="file" placeholder="Upload file" class="form-control-file" accept=".png,.jpg" id="exampleFormControlFile1">
+
+  </div>
+  <div class="col-md-12">
+    <label for="inputname"  class="form-label">Nombre Producto</label>
+    <input type="text" formControlName="product_name"  class="form-control" id="inputname" name="inputname" value={{productData.product_name}}>
+  </div>
+  <div class="col-md-6">
+    <label for="direction" class="form-label">Codigo Producto</label>
+    <input type="text" formControlName="product_code" class="form-control" id="direction" name="direction" value={{productData.product_code}}>
+  </div>
+
+  <div class="col-md-6">
+    <label for="input-mobile" class="form-label">Categoria</label>
+    <select formControlName="category_id" class="form-select" aria-label="Default select example">
+      <option value={{category.category_id}} *ngFor="let category of categoryData">{{category.category_name}}</option>
+    </select>
+  </div>
+
+  <div class="col-md-6">
+    <label for="input-mobile" class="form-label">Precio de Compra</label>
+    <input type="text" formControlName="purchase_price" class="form-control" id="input-mobile" name="input-mobile" value={{productData.purchase_price}}>
+  </div>
+  <div class="col-md-6">
+    <label for="input-id" class="form-label">Precio Minimo</label>
+    <input type="text" formControlName="min_price" class="form-control" id="input-id" name="input-id" value={{productData.min_price}}>
+  </div>
+  <div class="col-md-6">
+    <label for="input-rol" class="form-label">Precio Maximo</label>
+    <input type="text" formControlName="max_price" class="form-control" id="input-rol" name="input-rol" value={{productData.max_price}}>
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Descripcion</label>
+    <textarea class="form-control"  formControlName="product_description" id="exampleFormControlTextarea1" name="exampleFormControlTextarea1" rows="3" value={{productData.product_description}}></textarea>
+  </div>
+  <div class="col-md-12">
+  </div>
+  <input type="submit" value="Editar" class="btn" >
+
+</form>
+
+    </div>
+    </mat-drawer-content>
+</mat-drawer-container>
+

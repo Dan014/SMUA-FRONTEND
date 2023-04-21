@@ -1,0 +1,71 @@
+<div  *ngIf="sessionStr.getItem('authenticated')==='true'">
+  <h1 class="title-user">INTERCAMBIOS</h1>
+<div class="container">
+  <div card-table>
+  <form class="row g-3">
+
+  <div class="col-md-6">
+    <label class="form-label"  for="exampleFormControlSelect1">Tipo Documento</label>
+    <select class="form-control" id="exampleFormControlSelect1">
+      <option>C.C</option>
+      <option>T.I</option>
+      <option>Pasporte</option>
+    </select>
+  </div>
+  <div class="col-md-6">
+    <label for="input-id" class="form-label">Documento</label>
+    <input type="number"  class="form-control" id="input-id" >
+  </div>
+  <div class="col-md-12">
+  </div>
+  </form>
+    </div>
+</div>
+
+<div class="container">
+  <div class="card"routerLink="/info-exchange" >
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <h1>        VENTA 30/07/2021     8:30 am
+          </h1>
+        </div>
+        <div class="col">
+        <h1>$ 85.000</h1>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="card" >
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <h1>        VENTA 30/07/2021     8:30 am
+          </h1>
+        </div>
+        <div class="col">
+        <h1>$ 85.000</h1>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="card" >
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <h1>        VENTA 30/07/2021     8:30 am
+          </h1>
+        </div>
+        <div class="col">
+        <h1>$ 85.000</h1>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>

@@ -1,0 +1,73 @@
+<mat-drawer-container>
+  <mat-drawer *ngIf="sessionStr.getItem('authenticated')==='true'" mode="side" [opened]="sideBarOpen">
+      <app-sidenav></app-sidenav>
+  </mat-drawer>
+  <mat-drawer-content>
+      <app-header *ngIf="sessionStr.getItem('authenticated')==='true'" (toggleSidebarForMe)="sideBarToggler()"></app-header>
+
+      <div class="container">
+
+<h1 class="title-user">Productos</h1>
+
+<div class="container">
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4">
+        <button type="button" class="btn btn-primary" routerLink="/add-product" >AGREGAR</button>
+
+      </div>
+      <div class="col-sm-8">
+        <form class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+  <div class="container">
+    <div class="card-table">
+        <div class="cart-product">
+            <table class="table table-responsive">
+                <thead>
+                    <tr >
+                      <th>Imagen</th>
+                      <th>Nombre</th>
+                      <th>Precio</th>
+                      <th>Codigo</th>
+                      <th>Accion</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let product of productData" >
+                    <td data-label="Imagen" >
+                      <div *ngIf="product.productimage_url== null">
+                        <img src="assets/noimage.jpg">
+                      </div>
+                      <div >
+                        <img src={{product.productimage_url}}>
+                      </div>
+                    </td>
+                      <td data-label="Nombre">{{product.product_name}}</td>
+                      <td data-label="Precio">{{product.min_price}}</td>
+                      <td data-label="Codigo">{{product.product_code}}</td>
+                      <td ><button type="button" class="btn btn-danger" (click)="getId(product.product_id)" routerLink="/edit-product-form" >  EDITAR </button>
+                      <button type="button" class="btn btn-danger" (click)="getId(product.product_id)" routerLink="/ver-product-form" >   VER   </button>
+                      <button type="button" class="btn btn-danger" (click)="getId(product.product_id)" routerLink="/add-ubication" >UBICACION</button></td>
+                  </tr>
+
+              </tbody>
+            </table>
+        </div>
+      </div>
+  </div>
+</div>
+
+      </div>
+
+    </mat-drawer-content>
+</mat-drawer-container>

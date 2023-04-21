@@ -1,0 +1,50 @@
+::-webkit-scrollbar {
+  display: none;
+  overflow-x: hidden;
+}
+mat-drawer{
+  height: 100%;
+
+  background: rgb(255, 169, 169);
+}
+
+mat-drawer-container{
+  height: 100%;
+}
+
+mat-drawer-content{
+  margin: auto;
+  }
+
+.container{
+  margin-top: 20px;
+}
+
+
+.card{
+  background-color: rgb(243, 243, 243);
+  border-radius: 20px;
+
+}
+
+.title-user{
+  margin-top: 30px;
+  margin-left: 30px;
+  font-size: 200%;
+}
+
+h1{
+  text-align: center;
+  margin-top: 5%;
+}
+h2{
+  text-align: center;
+}
+ .price1{
+  color: green;
+}
+.price2{
+  color: red;
+}
+
+

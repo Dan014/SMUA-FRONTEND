@@ -1,0 +1,61 @@
+<mat-drawer-container>
+  <mat-drawer *ngIf="sessionStr.getItem('authenticated')==='true'" mode="side" [opened]="sideBarOpen">
+      <app-sidenav></app-sidenav>
+  </mat-drawer>
+  <mat-drawer-content>
+      <app-header *ngIf="sessionStr.getItem('authenticated')==='true'" (toggleSidebarForMe)="sideBarToggler()"></app-header>
+
+
+<div class="container" *ngIf="sessionStr.getItem('authenticated')==='true'">
+  <h1 class="title-user"> ubication</h1>
+<div class="container">
+  <div class="row">
+    <form class="row g-3 needs-validation" [formGroup]="locationForm" (ngSubmit)="getallSale()">
+      <div class="col-md-4">
+        <label for="direction" class="form-label">SELECIONAR FECHA VENTA</label>
+        <input type="date" formControlName="date" class="form-control">
+      </div>
+      <div class="col-md-4">
+        <label for="direction" class="form-label">SELECIONAR FECHA VENTA</label>
+        <input type="date" formControlName="date" class="form-control">
+      </div>
+     <div class="col-md-4">
+      <label for="direction" class="form-label">SELECCIONAR UBICACION</label>
+      <select id="inputState-charge"  formControlName="location_select" class="form-select" name="inputState-charge" required>
+        <option>Seleccionar</option>
+        <option value={{locations.location_id}} *ngFor="let locations of locationData">{{locations.location_name}}</option>
+      </select>
+      </div>
+
+      <div class="col-md-4">
+        <label for="direction" class="form-label">-</label>
+        <input type="submit" value="Buscar" class="btn" class="form-control btn" >
+      </div>
+</form>
+
+
+</div>
+
+<div class="card" *ngFor="let sale of saleDataHistory" >
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <h1>{{  sale.createdAt | date:'short' }}</h1>
+      </div>
+      <div class="col">
+      <h1>$ {{sale.sale_price}}</h1>
+    </div>
+    </div>
+  </div>
+</div>
+
+
+
+</div>
+
+</div>
+
+    </mat-drawer-content>
+</mat-drawer-container>
+
+

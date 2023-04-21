@@ -1,0 +1,72 @@
+<mat-drawer-container>
+  <mat-drawer *ngIf="sessionStr.getItem('authenticated')==='true'" mode="side" [opened]="sideBarOpen">
+      <app-sidenav></app-sidenav>
+  </mat-drawer>
+  <mat-drawer-content>
+      <app-header *ngIf="sessionStr.getItem('authenticated')==='true'" (toggleSidebarForMe)="sideBarToggler()"></app-header>
+
+    <div class="container">
+
+<h1 class="title-user">VER VENTA</h1>
+<div class="text-center">
+
+</div>
+<form class="row g-3"  [formGroup]="productForm">
+  <div class="col-md-12">
+    <label for="inputname"  class="form-label">sale_id</label>
+    <label   class="form-control">{{productData.sale_id}}</label>
+
+  </div>
+  <div class="col-md-6">
+    <label for="direction" class="form-label"> customerdocument_type</label>
+    <label class="form-control">{{productData.customerdocument_type}}</label>
+  </div>
+  <div class="col-md-6">
+    <label for="directionW" class="form-label"> customer_document</label>
+    <label  class="form-control">{{productData.customer_document}}</label>
+  </div>
+  <div class="col-md-6">
+    <label for="input-mobile" class="form-label"> sale_date </label>
+    <label class="form-control">{{productData.sale_date}}</label>
+  </div>
+  <div class="col-md-6">
+    <label for="input-id" class="form-label"> sale_price</label>
+    <label  class="form-control">{{productData.sale_price}}</label>
+  </div>
+  <div class="col-md-6">
+    <label for="input-rol" class="form-label">user_id</label>
+    <label   class="form-control">{{productData.user_id}}</label>
+  </div>
+  <div class="col-md-6">
+    <label for="input-rol" class="form-label">location_id</label>
+    <label  class="form-control">{{productData.location_id}}</label>
+  </div>
+  <div *ngFor="let product of productData.products" >
+    <div class="col-md-6">
+      <label for="input-rol" class="form-label">product_code</label>
+      <label  class="form-control">{{product.product_code}}</label>
+    </div>
+    <div class="col-md-6">
+      <label for="input-rol" class="form-label">product_name</label>
+    <label  class="form-control">{{product.product_name}}</label>
+    </div>
+    <div class="col-md-6">
+      <label for="input-rol" class="form-label">units</label>
+    <label  class="form-control">{{product.SaleHasProduct.units}}</label>
+    </div>
+    <div class="col-md-6">
+      <label for="input-rol" class="form-label">unit_price</label>
+    <label  class="form-control">{{product.SaleHasProduct.unit_price}}</label>
+    </div>
+
+   
+  </div>
+
+  <div class="col-md-12">
+  </div>
+
+</form>
+
+    </div>
+    </mat-drawer-content>
+</mat-drawer-container>

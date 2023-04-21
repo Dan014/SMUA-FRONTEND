@@ -1,0 +1,54 @@
+::-webkit-scrollbar {
+  display: none;
+  overflow-x: hidden;
+}
+mat-drawer{
+  height: 100%;
+
+  background: rgb(255, 169, 169);
+}
+
+mat-drawer-container{
+  height: 100%;
+}
+
+mat-drawer-content{
+  margin: auto;
+  }
+
+.container{
+  margin-top: 20px;
+}
+  .title-user{
+    margin-top: 30px;
+    margin-left: 30px;
+    color: blueviolet;
+    font-size: 200%;
+  }
+  img{
+    width: 250px;
+    height: 250px;
+    margin: auto;
+    margin-top: 10px;
+    border-radius: 20px;
+
+    }
+  button{
+    margin-top: 20px;
+      background-color:blueviolet;
+
+  }
+
+  form{
+    margin-left: 10%;
+    margin-right: 10%;
+  }
+  .btn{
+    transition-duration: 0.4s;
+        -webkit-transition-duration: 0.4s; /* Safari */
+        background: rgb(255, 169, 169);
+  }
+
+  .btn:hover {
+      background-color:rgb(253, 143, 143);
+  }

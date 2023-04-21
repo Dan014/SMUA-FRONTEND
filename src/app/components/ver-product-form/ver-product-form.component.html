@@ -1,0 +1,64 @@
+<mat-drawer-container>
+  <mat-drawer *ngIf="sessionStr.getItem('authenticated')==='true'" mode="side" [opened]="sideBarOpen">
+      <app-sidenav></app-sidenav>
+  </mat-drawer>
+  <mat-drawer-content>
+      <app-header *ngIf="sessionStr.getItem('authenticated')==='true'" (toggleSidebarForMe)="sideBarToggler()"></app-header>
+
+    <div class="container">
+
+<h1 class="title-user">VER PRODUCTO</h1>
+<div class="text-center">
+
+</div>
+<form class="row g-3"  [formGroup]="productForm" (ngSubmit)="upDateProduct()">
+  <div class="form-group" >
+    <div class="text-center">
+      <div >
+        <img src={{productData.productimage_url}}>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12">
+    <label for="inputname"  class="form-label">Nombre Producto</label>
+    <label   class="form-control">{{productData.product_name}}</label>
+
+  </div>
+  <div class="col-md-6">
+    <label for="direction" class="form-label">Codigo Producto</label>
+    <label class="form-control">{{productData.product_code}}</label>
+  </div>
+  <div class="col-md-6">
+    <label for="directionW" class="form-label">Categoria Producto</label>
+    <input type="text" formControlName="category_name" class="form-control" id="inputname" name="inputname">
+  </div>
+  <div class="col-md-6">
+    <label for="input-mobile" class="form-label">Precio de Compra</label>
+    <label class="form-control">{{productData.purchase_price}}</label>
+  </div>
+  <div class="col-md-6">
+    <label for="input-id" class="form-label">Precio Minimo</label>
+    <label  class="form-control">{{productData.min_price}}</label>
+  </div>
+  <div class="col-md-6">
+    <label for="input-rol" class="form-label">Precio Maximo</label>
+    <label  class="form-control">{{productData.max_price}}</label>
+  </div>
+  <div class="col-md-6" *ngFor="let locatin of productData.locations" >
+    <label for="input-id" class="form-label">{{locatin.location_name}}</label>
+    <label  class="form-control">{{locatin.LocationHasProduct.units}}</label>
+  </div>
+
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">Descripcion</label>
+    <label class="form-control"  rows="3" >{{productData.product_description}}</label>
+  </div>
+
+  <div class="col-md-12">
+  </div>
+
+</form>
+
+    </div>
+    </mat-drawer-content>
+</mat-drawer-container>

@@ -1,0 +1,34 @@
+<mat-drawer-container>
+  <mat-drawer *ngIf="sessionStr.getItem('authenticated')==='true'" mode="side" [opened]="sideBarOpen">
+      <app-sidenav></app-sidenav>
+  </mat-drawer>
+  <mat-drawer-content>
+      <app-header *ngIf="sessionStr.getItem('authenticated')==='true'" (toggleSidebarForMe)="sideBarToggler()"></app-header>
+      <div class="container" *ngIf="sessionStr.getItem('authenticated')==='true'">
+        <h1 class="title-user">VENTAS</h1>
+
+      <div class="row row-cols-1 row-cols-md-3 g-4">
+
+        <div class="col">
+          <div class="card" routerLink="/shopping-cart">
+            <img src="../../../assets/venta.png" class="img-fluid" alt="...">
+            <div class="card-body">
+              <h2 class="card-title">VENTAS</h2>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card" routerLink="/sales-history">
+            <img src="../../../assets/historial.png" class="img-fluid" alt="...">
+            <div class="card-body">
+              <h2 class="card-title">HISTORIAL VENTAS</h2>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      </div>
+
+    </mat-drawer-content>
+</mat-drawer-container>

@@ -1,0 +1,27 @@
+<mat-toolbar>
+  <mat-toolbar-row class="justify-content-between">
+      <button mat-icon-button (click)="toggleSidebar()"><mat-icon>menu</mat-icon></button>
+      <div class="col-sm-8">
+      </div>
+       <div class="row mr-2 ml-auto">
+          <ul>
+              <li>
+                  <button mat-button [matMenuTriggerFor]="menu" class="user mt-2 d-flex align-items-center">
+                      <img src="../../../assets/user.png" alt="" class="user-image mr-1 p-2">
+                      {{nameUser}}
+                      <mat-icon class="user-image-icon ml-1">keyboard_arrow_down</mat-icon>
+                  </button>
+                  <mat-menu #menu="matMenu">
+                      <button (click)="exit()" routerLink="/login" >
+                        SALIR
+                          <mat-icon>exit_to_app</mat-icon>
+                      </button>
+                  </mat-menu>
+              </li>
+          </ul>
+      </div>
+<button  class="btn btn-secondary">
+  <img src="../../../assets/shoping-car.png" alt="" class="car-image mr-1 p-2" routerLink="/shopping-cart">
+</button>
+  </mat-toolbar-row>
+</mat-toolbar>

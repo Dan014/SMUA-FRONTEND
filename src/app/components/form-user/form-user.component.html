@@ -1,0 +1,75 @@
+
+<mat-drawer-container>
+  <mat-drawer *ngIf="sessionStr.getItem('authenticated')==='true'" mode="side" [opened]="sideBarOpen">
+      <app-sidenav></app-sidenav>
+  </mat-drawer>
+  <mat-drawer-content>
+      <app-header *ngIf="sessionStr.getItem('authenticated')==='true'" (toggleSidebarForMe)="sideBarToggler()"></app-header>
+
+
+
+<div class="container">
+  <h1 class="title-user">USUARIOS</h1>
+<div class="text-center">
+  <img src="../../../assets/user.png" class="img-thumbnail" alt="...">
+</div>
+<form class="row g-3 needs-validation" [formGroup]="userForm" (ngSubmit)="onSubmit()"   >
+  <div class="col-md-6" >
+    <label for="inputname" class="form-label">Nombre</label>
+    <input type="text" formControlName="first_name" class="form-control" id="inputname" name="inputname"  >
+    <div *ngIf="validateControl('first_name', 'required')">
+      Campo requerido
+    </div>
+  </div>
+  <div class="col-md-6">
+    <label for="input-last-name" class="form-label">Apellido</label>
+    <input type="text" formControlName="last_name" class="form-control" id="input-last-name" name="input-last-name" required="">
+    <div *ngIf="validateControl('last_name', 'required')">
+      Campo requerido
+    </div>
+  </div>
+  <div class="col-md-12">
+    <label for="input-mobile" class="form-label">Telefono</label>
+    <input type="number" formControlName="phone_number" class="form-control" required="">
+    <div *ngIf="validateControl('phone_number', 'required')">
+      Minimo 10 numero
+    </div>
+  </div>
+  <div class="col-md-12">
+    <label for="inputEmail4" class="form-label">Email</label>
+    <input type="text"  formControlName="email"  placeholder="chofy@ejemplo.com" class="form-control" id="inputEmail4" name="inputEmail4" required="">
+      <div *ngIf="validateControl2('email', 'email')">
+        No es una direccion de correo valdia
+      </div>
+  </div>
+  <div class="col-md-6">
+    <label for="input-id" class="form-label">Documento</label>
+    <input type="number"  formControlName="document_number" class="form-control" id="input-id" name="input-id" required="">
+    <div *ngIf="validateControl('document_number', 'required')">
+      Campo requerido
+    </div>
+  </div>
+  <div class="col-md-6">
+    <label for="inputState-charge" class="form-label">Cargo</label>
+    <select id="inputState-charge" formControlName="is_admin" class="form-select" name="inputState-charge" required="">
+      <option [ngValue]="false" selected>Empleado</option>
+      <option [ngValue]="true" selected>Administrador</option>
+    </select>
+    <div *ngIf="validateControl('is_admin', 'required')">
+      Campo requerido
+    </div>
+  </div>
+
+    <input [disabled]="userForm.invalid" type="submit" value="Agregar" class="btn" >
+
+
+
+</form>
+
+
+</div>
+
+    </mat-drawer-content>
+</mat-drawer-container>
+
+

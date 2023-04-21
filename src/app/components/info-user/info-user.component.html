@@ -1,0 +1,48 @@
+<mat-drawer-container>
+  <mat-drawer *ngIf="sessionStr.getItem('authenticated')==='true'" mode="side" [opened]="sideBarOpen">
+      <app-sidenav></app-sidenav>
+  </mat-drawer>
+  <mat-drawer-content>
+      <app-header *ngIf="sessionStr.getItem('authenticated')==='true'" (toggleSidebarForMe)="sideBarToggler()"></app-header>
+
+
+
+<div class="container">
+  <h1 class="title-user">USUARIO</h1>
+<div class="text-center">
+  <img *ngIf="result_role_boolean ==true" src="../../../assets/admin.png" class="img-fluid" alt="...">
+  <img *ngIf="result_role_boolean ==false" src="../../../assets/user.png" class="img-fluid" alt="...">
+</div>
+<form class="row g-3"[formGroup]="userForm"  (ngSubmit)="upDateUser()">
+  <div class="col-md-6">
+    <label for="inputname" class="form-label">Nombress</label>
+    <input type="text" class="form-control" disabled="disabled" id="inputname" value={{userData.first_name}}>
+  </div>
+  <div class="col-md-6">
+    <label for="input-last-name" class="form-label">Apellido</label>
+    <input type="text" class="form-control" disabled="disabled"id="input-last-name" value={{userData.last_name}}>
+  </div>
+  <div class="col-md-12">
+    <label for="mobile" class="form-label">Telefono</label>
+    <input type="text" class="form-control" disabled="disabled" id="mobile" value={{userData.phone_number}}>
+  </div>
+  <div class="col-md-12">
+    <label for="inputEmail" class="form-label">Email</label>
+    <input type="text"  disabled="disabled"  class="form-control" id="inputEmail" value={{userData.email}}>
+  </div>
+  <div class="col-md-6">
+    <label for="document" class="form-label">Documento</label>
+    <input type="text" disabled="disabled"   class="form-control"  id="document" value={{userData.document_number}} >
+  </div>
+  <div class="col-md-6">
+    <label for="document" class="form-label">Cargo</label>
+    <input type="text" disabled="disabled"   class="form-control"  id="document" value={{result_role}} >
+  </div>
+</form>
+
+
+</div>
+
+    </mat-drawer-content>
+</mat-drawer-container>
+

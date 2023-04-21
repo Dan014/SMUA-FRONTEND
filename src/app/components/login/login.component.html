@@ -1,0 +1,39 @@
+<div>
+
+  <body>
+    <div class="head"></div>
+
+    <div class="login-wrapper">
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="form">
+        <img src="assets/user.png" alt="">
+        <h2>Iniciar Sesion</h2>
+        <div class="input-group">
+          <input formControlName="document_number" type="text" name="loginUser" id="loginUser" required>
+          <label for="loginUser">Usuario</label>
+          <div *ngIf="loginForm.controls.document_number.invalid
+            && (loginForm.controls.document_number.dirty || loginForm.controls.document_number.touched)"
+            class="alert">
+            <div *ngIf="loginForm.controls.document_number.errors?.['required']">
+              <p class="text-danger">Número de documento requerido</p>
+            </div>
+          </div>
+        </div>
+        <div class="input-group">
+          <input formControlName="password" type="password" name="loginPassword" id="loginPassword" required>
+          <label for="loginPassword">Password</label>
+          <div *ngIf="loginForm.controls.password.invalid
+            && (loginForm.controls.password.dirty || loginForm.controls.password.touched)"
+            class="alert">
+            <div *ngIf="loginForm.controls.password.errors?.['required']">
+              <p class="text-danger">Contraseña requerida</p>
+            </div>
+          </div>
+        </div>
+        <input type="submit" value="Ingresar" class="submit-btn" >
+      </form>
+    </div>
+
+  </body>
+
+
+  </div>

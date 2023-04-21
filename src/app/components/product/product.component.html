@@ -1,0 +1,59 @@
+<mat-drawer-container>
+  <mat-drawer *ngIf="sessionStr.getItem('authenticated')==='true'" mode="side" [opened]="sideBarOpen">
+      <app-sidenav></app-sidenav>
+  </mat-drawer>
+  <mat-drawer-content>
+      <app-header *ngIf="sessionStr.getItem('authenticated')==='true'" (toggleSidebarForMe)="sideBarToggler()"></app-header>
+      <div class="container" *ngIf="sessionStr.getItem('authenticated')==='true'">
+
+        <div class="container">
+              <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+         </div>
+
+          <div class="container">
+
+           <div class="row row-cols-1 row-cols-md-3 g-4">
+            <div class="col" *ngFor="let product of productData">
+              <div class="card">
+                <div *ngIf="product.productimage_url== null">
+                  <img src="assets/noimage.jpg">
+                </div>
+                <div >
+                  <img src={{product.productimage_url}} class="img-fluid" alt="...">
+                </div>
+
+                <div class="card-body">
+                  <h1 class="card-title"> {{product.product_name}}</h1>
+                  <h4 class="card-cant">Código: {{product.product_code}}</h4>
+                  <div class="container">
+                    <div class="row">
+                      <div class="col">
+                        <h3>MIN</h3>
+                      </div>
+                      <div class="col">
+                        <h3>MAX</h3>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="container">
+                    <div class="row">
+                      <div class="col">
+                        <h3 class="price">{{product.min_price}}</h3>
+                      </div>
+                      <div class="col">
+                        <h3 class="price">{{product.max_price}}</h3>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <button type="button" class="btn btn-danger" (click)="getId(product.product_id)" routerLink="/ver-product-form" >   VER   </button>
+              </div>
+            </div>
+
+             </div>
+
+        </div>
+      </div>
+
+    </mat-drawer-content>
+</mat-drawer-container>

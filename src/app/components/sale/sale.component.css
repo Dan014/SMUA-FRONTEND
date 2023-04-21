@@ -1,0 +1,52 @@
+mat-drawer{
+  height: 100%;
+
+  background: rgb(255, 169, 169);
+}
+
+mat-drawer-container{
+  height: 100%;
+}
+
+h2{
+  text-align: center;
+}
+mat-drawer-content{
+  margin: auto;
+  }
+
+.container{
+  margin-top: 20px;
+}
+
+.title-user{
+  margin-top: 30px;
+  margin-left: 30px;
+  font-size: 200%;
+}
+
+.card{
+  height: 60vh;
+  margin: 25px;
+  padding: 25px;
+
+}
+
+img{
+width: 250px;
+height: 200px;
+margin: auto;
+margin-top: 10px;
+border-radius: 20px;
+
+}
+button{
+  background-color:blueviolet;
+
+
+}
+
+
+
+
+

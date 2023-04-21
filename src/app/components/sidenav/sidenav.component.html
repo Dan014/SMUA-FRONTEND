@@ -1,0 +1,38 @@
+<mat-nav-list *ngIf="roleboolean ==true">
+  <div class="logo py-4">
+
+      <img src="../../../assets/admin.png" alt="CompanyLogo">
+  </div>
+  <h3>{{role}}</h3>
+  <mat-divider></mat-divider>
+  <h2 matSubheader class="mat-2">OPCIONES</h2>
+  <a mat-list-item routerLink="/product" routerLinkActive="list-item-active">
+      <mat-icon>home</mat-icon>Inicio</a>
+      <a mat-list-item routerLink="/sale" routerLinkActive="list-item-active">
+          <mat-icon>add_shopping_cart</mat-icon>Ventas</a>
+          <a mat-list-item routerLink="/list-product">
+              <mat-icon>assignment</mat-icon>Inventario </a>
+              <a mat-list-item routerLink="/provider" routerLinkActive="list-item-active">
+                  <mat-icon>supervised_user_circle</mat-icon>Proveedores</a>
+                  <a mat-list-item routerLink="/report" routerLinkActive="list-item-active">
+                      <mat-icon>timeline</mat-icon>Reportes</a>
+                      <a mat-list-item routerLink="/user-admin" routerLinkActive="list-item-active">
+                          <mat-icon>account_circle</mat-icon>Usuarios</a>
+
+</mat-nav-list>
+
+<mat-nav-list *ngIf="roleboolean ==false">
+  <div class="logo py-4">
+      <img src="../../../assets/user.png" alt="CompanyLogo">
+  </div>
+  <h3>{{role}}</h3>
+  <mat-divider></mat-divider>
+  <h2 matSubheader class="mat-2">OPCIONES</h2>
+  <a mat-list-item routerLink="/product" routerLinkActive="list-item-active">
+      <mat-icon>home</mat-icon>Inicio</a>
+      <a mat-list-item routerLink="/sale" routerLinkActive="list-item-active">
+          <mat-icon>add_shopping_cart</mat-icon>Ventas</a>
+          <a mat-list-item routerLink="/inventory"></a>
+
+
+</mat-nav-list>

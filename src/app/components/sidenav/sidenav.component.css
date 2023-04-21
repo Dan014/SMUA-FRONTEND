@@ -1,0 +1,32 @@
+mat-nav-list{
+  width: 250px;
+  overflow: hidden;
+
+}
+.logo{
+  text-align: center;
+  padding: 2.6rem 1rem;
+
+}
+img{
+  width: 150px;
+}
+.mat-icon{
+  vertical-align: center;
+  margin-right: 1rem ;
+}
+
+h3{
+  text-align: center;
+}
+
+.mat-list-item{
+  color: rgb(0, 0, 0);
+  font-size: 0.8rem;
+  height: 44px !important;
+  margin-bottom: 4px;
+  border-radius: 5px;
+  margin: 0 8px;
+
+}
+

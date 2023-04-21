@@ -1,0 +1,18 @@
+*{
+  margin: auto;
+  margin-top: 5px;
+
+}
+.title-user{
+  margin-top: 30px;
+  margin-left: 30px;
+  font-size: 200%;
+}
+
+.card{
+  background-color: rgb(241, 241, 241);
+  margin-top: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
+
+}

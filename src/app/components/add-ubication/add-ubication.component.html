@@ -1,0 +1,37 @@
+<mat-drawer-container>
+  <mat-drawer *ngIf="sessionStr.getItem('authenticated')==='true'" mode="side" [opened]="sideBarOpen">
+      <app-sidenav></app-sidenav>
+  </mat-drawer>
+  <mat-drawer-content>
+      <app-header *ngIf="sessionStr.getItem('authenticated')==='true'" (toggleSidebarForMe)="sideBarToggler()"></app-header>
+
+    <div class="container">
+
+<h1 class="title-user">Agregar Ubicación</h1>
+
+<form class="row g-3"  [formGroup]="ubicationForm" (ngSubmit)="onSubmit()">
+
+  <div class="col-md-12">
+    <label for="inputname"  class="form-label">Nombre Producto</label>
+    <input type="text" disabled="disabled" class="form-control" id="inputname"  value={{productData.product_name}}>
+  </div>
+  <div class="col-md-6">
+    <label for="exampleFormControlSelect1">Ubicaciones</label>
+    <select id="inputState-charge"  formControlName="location_id" class="form-select" name="inputState-charge" required>
+      <option selected>Seleccionar</option>
+      <option value={{locations.location_id}} *ngFor="let locations of locationData">{{locations.location_name}}</option>
+    </select>
+  </div>
+  <div class="col-md-6">
+    <label for="input-unit-one" class="form-label">Unidades</label>
+    <input type="text" formControlName="units" class="form-control" id="input-unit-one" name="input-unit-one" required>
+  </div>
+  <div class="col-md-12">
+  </div>
+  <input type="submit" value="Agregar ubicacion" class="btn" >
+</form>
+    </div>
+    </mat-drawer-content>
+</mat-drawer-container>
+
+
